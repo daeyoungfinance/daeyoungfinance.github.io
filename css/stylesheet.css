@@ -1,6 +1,29 @@
 @charset "utf-8";
-@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css");
 @import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css");
+@import url("./reset.css");
+
+/* 숨김 콘텐츠 */
+
+.hidden {
+  position: absolute;
+  left: -9999em;
+}
+
+
+/* 하이퍼링크 스타일 */
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover,
+a:focus {
+  color: #f00;
+}
+
 
 /* 본문 스타일 */
 
@@ -10,11 +33,157 @@ body {
 }
 
 
+/* 레이아웃 */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.header,
+.navigation,
+.main-content,
+.slogan,
+.footer {
+  width: 100%;
+}
+
+.main-content {
+  background: blue;
+}
+
+.slogan {
+  background: orange;
+}
+
+.footer {
+  background: lime;
+}
+
+
 /* 모바일 */
 
-@media all and (max-wtidh:999px) {
-  body {
-    background: yellow;
+@media all and (max-width:999px) {
+  .header {
+    background: #38302e;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+  }
+  .member {
+    order: -1;
+    background: #988574;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .member a {
+    display: block;
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem
+  }
+  .logo {
+    padding: 1rem;
+  }
+  .search {
+    padding: 0 1rem 1rem 1rem;
+  }
+  #search {
+    border: 1px solid #aaa;
+    width: calc(100% - 75px);
+    margin-right: 0.5rem;
+    height: 30px;
+    border-radius: 5px;
+    padding-left: 1rem;
+  }
+  .btn-search {
+    border: 0;
+    border-radius: 5px;
+    padding: 0.2rem 1rem;
+    background: #988574;
+    color: #fff;
+    height: 30px;
+  }
+  .menubar-container {
+    position: absolute;
+    top: 4rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+  }
+  .btn-menubar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px 0 0 0;
+    border: 0;
+    background: transparent;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .menubar {
+    display: block;
+    width: 40px;
+    height: 10px;
+    background: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .menubar-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .menubar-middle {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+  .menubar-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  .menubar-act .menubar-top {
+    transform: rotate(45deg);
+    top: 50%;
+    margin-top: -5px;
+  }
+  .menubar-act .menubar-middle {
+    transform: translateX(-100%) translateY(-5px);
+  }
+  .menubar-act .menubar-bottom {
+    transform: rotate(-45deg);
+    top: 50%;
+    margin-top: -5px;
+  }
+  .main-menu {
+    transform: translateX(-100%);
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70vw;
+    height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+    transition: all 0.2s;
+    font-size: 10px;
+  }
+  .menu-act {
+    transform: translateX(0);
+  }
+  .sub-menu {
+    list-style: circle;
+    padding-left: 2rem;
+  }
+  .sub-menu li {
+    margin: 0.5rem 0;
   }
 }
 
@@ -22,7 +191,75 @@ body {
 /* 데스크탑 */
 
 @media all and (min-width:1000px) {
-  body {
-    background: pink;
+  .wrapper {
+    align-items: center;
+  }
+  .header,
+  .main-menu,
+  .main-content,
+  .slogan,
+  .footer {
+    width: 80%;
+  }
+  .header {
+    position: relative;
+    padding-bottom: 1rem;
+  }
+  .logo {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .member {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .member a {
+    display: block;
+    padding: 1rem 0.5rem;
+    margin-left: 0.5rem;
+  }
+  .search-wrap {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .search input {
+    width: 400px;
+    height: 35px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 0 0 0 1rem;
+    margin-right: 1rem;
+  }
+  .btn-search {
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background: #988574;
+    color: #fff;
+    padding: 0 1rem;
+  }
+  .navigation {
+    background: #988574;
+    border-top: 2px solid #222;
+    border-bottom: 2px solid #222;
+    padding: 1rem 0;
+  }
+  .menubar-container {
+    display: none;
+  }
+  .main-menu {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+  }
+  .main-menu span {
+    font-size: 1rem;
+    font-weight: 700;
+    text-shadow: -1px 0 0 #000, 0 -1px 0 #000, 1px 0 0 #000, 0 1px 0 #000;
+  }
+  .sub-menu li {
+    margin: 0.5rem 0 0.5rem 0.5rem;
   }
 }
