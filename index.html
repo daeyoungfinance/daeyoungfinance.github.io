@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="css/stylesheet.css">
 </head>
 
+/* 반응형 콘텐츠 */ .responsive{ max-width: 100%; height: auto; }
+
 <body>
   <div class="wrapper">
     <header class="header">
@@ -101,6 +103,10 @@
       </section>
       <section class="board">
         <h2 class="board-heading main-content-heading">
+          /* 추천 서적 */ .recomment-book{ border-bottom: 2px solid #999; }
+
+          <recomment-book-cover></recomment-book-cover>
+
           게시판
           <span class="en-heading">Webcafe Board</span>
         </h2>
@@ -110,12 +116,15 @@
           인기 사이트
           <span class="en-heading">Favorite Site</span>
         </h2>
+        .recommend-book-detail dt, .recommend-book-detail dd { display: inline; }
       </section>
       <section class="twitter">
         <h2 class="twitter-heading main-content-heading">
           웹카페 트위터
           <span class="en-heading">Webcafe Twitter</span>
         </h2>
+        .recommend-book-grade
+
       </section>
     </main>
     <article class="slogan">슬로건</article>
